@@ -3,8 +3,6 @@
 import Image from "next/image";
 
 export function SigCard({ title, image }: { title: string; image: string }) {
-  // Ensure path is correct
-  const imagePath = image.startsWith('/') ? image : `/${image}`;
 
   return (
     <div className="group relative w-full h-72 rounded-3xl bg-[#0c0c14] overflow-hidden border border-white/5 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(124,58,237,0.3)]">
@@ -13,7 +11,7 @@ export function SigCard({ title, image }: { title: string; image: string }) {
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="relative w-full h-full">
           <Image
-            src={imagePath}
+            src={image}
             alt={title}
             fill
             className="object-contain scale-90 transition-transform duration-700 group-hover:scale-100"
@@ -30,7 +28,7 @@ export function SigCard({ title, image }: { title: string; image: string }) {
       <div 
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(circle at center, transparent 30%, card 70%)'
+          background: 'radial-gradient(circle at center, transparent 30%, #0c0c14 70%)',
         }}
       />
 

@@ -1,20 +1,37 @@
+"use client";
+import LiquidEther from "@/components/LiquidEther";
 import { SigCard } from "@/components/SigCard";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <main className="bg-background min-h-screen">
-      
-      {/* 1. HERO SECTION (Placeholder to enable scrolling) */}
+    
       <section id="home" className="h-screen flex items-center justify-center border-b border-white/5">
-        <h1 className="text-5xl font-display font-bold text-white">
+        {/* <div className="absolute inset-0 ">
+          <LiquidEther
+            colors={[ '#00E5FF', '#00E5FF', '#00E5FF' ]}
+          />
+        </div> */}
+        <h1 className="relative z-10 text-8xl font-display font-bold text-white">
           Welcome to <span className="text-primary">ISTE NITK</span>
         </h1>
       </section>
 
-      {/* 2. SIGs SECTION (Linked via id="sigs") */}
+      <section id="about" className="py-24 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold font-display text-white mb-4">
+            About <span className="text-primary">ISTE NITK</span>
+          </h2>
+          <p className="text-muted mt-4">
+            ISTE NITK is the student chapter of the Indian Society for Technical Education at the National Institute of Technology Karnataka.
+             We are dedicated to fostering technical knowledge, innovation, and professional development among students through various activities, workshops, and events.
+          </p>
+        </div>
+      </section>  
+
       <section id="sigs" className="py-24 px-6 relative">
         
-        {/* Section Heading */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold font-display text-white mb-4">
             Our <span className="text-primary">SIGs</span>
@@ -25,8 +42,6 @@ export default function Home() {
           </p>
         </div>
 
-        {/* The Grid */}
-        {/* Changed to responsive grid (1 col on mobile -> 4 on desktop) */}
         <div className="grid grid-cols-4 gap-8 max-w-7xl mx-auto">
           <SigCard title="Catalyst" image="/catalyst.jpg" />
           <SigCard title="Charge" image="/charge.jpg" />
@@ -39,10 +54,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. NEXT SECTION (e.g. Events or Footer) */}
-      <div className="h-[500px] bg-surface text-foreground flex items-center justify-center">
-        Footer / Contact Area
-      </div>
+      <section id="events" className="py-24 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold font-display text-white mb-4">
+            Upcoming <span className="text-primary">Events</span>
+          </h2>
+          <p className="text-muted mt-4">
+            Stay tuned for our upcoming events and workshops designed to enhance your technical skills and knowledge.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" className="py-24 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-4 gap-16"> 
+          
+        </div>
+      </section>
     </main>
   );
 }
