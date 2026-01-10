@@ -1,6 +1,7 @@
 "use client";
 import About from "@/components/About";
 import { SigCard } from "@/components/SigCard";
+import {sigs} from "@/components/data";
 
 export default function Home() {
   return (
@@ -27,14 +28,15 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-4 gap-8 max-w-7xl mx-auto">
-          <SigCard title="Catalyst" image="/catalyst.jpg" />
-          <SigCard title="Charge" image="/charge.jpg" />
-          <SigCard title="Chronicle" image="/chronicle.jpg" />
-          <SigCard title="Clutch" image="/clutch.jpg" />
-          <SigCard title="Concrete" image="/concrete.jpg" />
-          <SigCard title="Create" image="/create.jpg" />
-          <SigCard title="Credit" image="/credit.jpg" />
-          <SigCard title="Crypt" image="/crypt.jpg" />
+          {sigs.map((sig) => (
+            <SigCard
+              key={sig.title}
+              title={sig.title}
+              image={sig.image}
+              description={sig.description}
+              link={sig.link}
+            />
+          ))}
         </div>
       </section>
 

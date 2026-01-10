@@ -10,7 +10,7 @@ export default function About() {
                 We are dedicated to fostering technical knowledge, innovation, and professional development among students through various activities, workshops, and events.</p>
         </div>
         <div>
-          <Image src="/download (1).png" alt="ISTE" width={450} height={450} />
+          <Image src="/full_sig.jpeg" alt="ISTE" width={450} height={450} />
         </div>
       </div>
   
