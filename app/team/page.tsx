@@ -1,8 +1,42 @@
 "use client";
-import { memberDetails } from "@/components/data"
+import { adminCore, auxCore, executiveCore, memberDetails } from "@/components/data"
 import SpecialCard from "@/components/FacAd";
 import MemberCard, { Member } from "@/components/MemberCard"
 import { useState } from "react"
+
+
+
+
+
+const CoreSection = ({
+  title,
+  members,
+}: {
+  title: string;
+  members: Member[];
+}) => {
+  return (
+    <>
+      <div className="w-[80%] mt-20 flex flex-col items-center">
+        <p className="text-4xl font-semibold text-primary">{title}</p>
+      </div>
+
+      <div className="mt-10 w-[80%] flex flex-wrap gap-8 justify-center">
+        {members.map((member, index) => (
+          <MemberCard
+            key={index}
+            name={member.name}
+            sig={member.sig}
+            post={member.post}
+            image={member.image}
+            linkedin={member.linkedin}
+          />
+        ))}
+      </div>
+    </>
+  );
+};
+
 
 const Members = () => {
 
@@ -15,7 +49,7 @@ const Members = () => {
   return (
     <div className="pt-22 w-full flex flex-col items-center">
         <div className="w-[80%] mt-10 flex flex-col items-center">
-            <p className="text-4xl font-semibold ">Faculty Advisor</p>
+            <p className="text-4xl font-semibold text-primary">Faculty Advisor</p>
         </div>
         <div className="my-10 flex flex-wrap gap-8 justify-center">
           <SpecialCard
@@ -29,7 +63,7 @@ const Members = () => {
           />
         </div>
 
-        <div className="w-[80%] mt-10 flex flex-col items-center">
+        {/* <div className="w-[80%] mt-10 flex flex-col items-center">
             <p className="text-4xl font-semibold ">Explorers</p>
         </div>
         <div className="flex w-[65%] justify-between mt-10 rounded-full border border-gray-900 px-2 py-1 shadow-md shadow-amber-50">
@@ -47,11 +81,15 @@ const Members = () => {
             {
               memberDetails.map((member: Member, index:number) => (
                 <div key={index}>
-                  <MemberCard name={member.name} sig={member.sig} post={member.post} image={member.image} />
+                  <MemberCard name={member.name} sig={member.sig} post={member.post} image={member.image} linkedin={member.linkedin} />
                 </div>
               ))
             }
-        </div>
+        </div> */}
+
+      <CoreSection title="Admin Core" members={adminCore} />
+      <CoreSection title="Executive Core" members={executiveCore} />
+      <CoreSection title="Auxiliary Core" members={auxCore} />
     </div>
   )
 }
