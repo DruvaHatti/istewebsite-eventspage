@@ -17,22 +17,23 @@ export default function RouteChrome({ children }: RouteChromeProps) {
   const isHomePage = pathname === "/";
   const isTeamPage = pathname === "/team";
   const useSpaceThemeChrome = isHomePage || isTeamPage;
+  const particleDensity = isTeamPage ? 60 : 100;
 
   if (useSpaceThemeChrome) {
     return (
-      <div className="min-h-screen bg-black text-white flex flex-col">
+      <div className="relative isolate min-h-screen bg-black text-white flex flex-col">
         <div
           aria-hidden="true"
-          className="fixed inset-0 z-[-1] pointer-events-none bg-linear-to-b from-teal-400/10 via-[#020812]/68 to-black/92"
+          className="fixed inset-0 z-0 pointer-events-none bg-linear-to-b from-teal-400/12 via-[#020812]/70 to-black/92"
         />
 
-        <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="fixed inset-0 z-10 pointer-events-none">
           <SparklesCore
             id="tsparticlesfullpage"
             background="transparent"
             minSize={0.6}
             maxSize={1.4}
-            particleDensity={100}
+            particleDensity={particleDensity}
             className="w-full h-full"
             particleColor="#4fd1c5"
           />
@@ -42,7 +43,7 @@ export default function RouteChrome({ children }: RouteChromeProps) {
           <SpaceNavbar />
         </div>
 
-        <main className="relative z-10 grow pointer-events-auto">{children}</main>
+        <main className="relative z-20 grow pointer-events-auto">{children}</main>
       </div>
     );
   }

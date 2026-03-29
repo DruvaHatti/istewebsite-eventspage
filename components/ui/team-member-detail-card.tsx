@@ -60,6 +60,7 @@ export function TeamMemberDetailCard({ member, reverse = false }: TeamMemberDeta
               width={208}
               height={208}
               sizes="(max-width: 640px) 176px, 208px"
+              unoptimized
               className="h-full w-full object-cover"
             />
           </div>
